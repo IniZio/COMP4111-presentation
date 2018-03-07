@@ -37,8 +37,6 @@ server.listen(5004);
 
 @title[RPC in client]
 
-s
-
 ```js
 const dnode = require('dnode');
 
