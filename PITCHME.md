@@ -37,6 +37,8 @@ server.listen(5004);
 
 @title[RPC in client]
 
+<p><span class="slide-title">RPC (client.js)</span></p>
+
 ```js
 const dnode = require('dnode');
 
@@ -227,4 +229,3 @@ Advantages:
 - Developing mobile clients which are communicating to a cloud server.
 - Need a protocol that needs to be accurate, efficient and language independent.
 - Want fully extendable system eg. authentication, load balancing, logging and monitoring etc.
-
