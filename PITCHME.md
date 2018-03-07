@@ -189,9 +189,25 @@ message Response {
 Advantages:
 
 - Schemas are awesome
-- Versioning: `int32 id = 1` $\rightarrow$ `string responseId = 4`
-- Validations: `required`, `optional`, `repeated`
-- Even better performance (binary)
+
+- Versioning:
+
+  ```protobuf
+  int32 id = 1;
+  // later...
+  string responseId = 4
+  ```
+
+- Validations: 
+
+  ```protobuf
+  required int32 id = 1;
+  ```
+
+  ​
+
+- Even better performance
+  ![](https://cdn.auth0.com/blog/protobuf-json/java-times.png)
 
 ---
 
