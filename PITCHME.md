@@ -2,11 +2,11 @@
 
 ### A modern RPC framework
 
-HTTP/2.0, ProtoBuf, 
-
 ---
 
-## What so special with it?
+HTTP/2.0, ProtoBuf...
+
+### ...but what so special with it?
 
 Let's see how current RPC looks like
 
@@ -28,6 +28,8 @@ server.listen(5004);
 ```
 
 @[4-6](Procedures that server handles)
+
+---
 
 @title[RPC in client]
 
