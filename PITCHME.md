@@ -204,7 +204,7 @@ Advantages:
   required int32 id = 1;
   ```
 
-  ​
+---
 
 - Even better performance
   ![](https://cdn.auth0.com/blog/protobuf-json/java-times.png)
