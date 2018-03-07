@@ -6,7 +6,7 @@
 
 #### HTTP/2.0, ProtoBuf...
 
-### ...but what so special with it?
+### ...but why does it even matter?
 
 <br />
 
@@ -65,3 +65,96 @@ d.on('remote', function (remote) {
 
 ---
 
+#### How gRPC is like
+
+@title[Protobuf]
+
+```protobuf
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.examples.helloworld";
+option java_outer_classname = "HelloWorldProto";
+option objc_class_prefix = "HLW";
+
+package helloworld;
+
+// The greeting service definition.
+service Greeter {
+  // Sends a greeting
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
+}
+
+// The request message containing the user's name.
+message HelloRequest {
+  string name = 1;
+}
+
+// The response message containing the greetings
+message HelloReply {
+  string message = 1;
+}
+```
+
+@[16-19](Request parameters)
+
+@[21-24](Reply parameters)
+
+@[10-14](A  service to greet)
+
+---
+
+@title[gRPC in Server]
+
+<p><span class="slide-title">gRPC (server.js)</span></p>
+
+```js
+var grpc = require('grpc');
+var { helloworld: hello_proto } = grpc.load('./helloworld.proto');
+
+function main() {
+  var server = new grpc.Server();
+  server.addService(hello_proto.Greeter.service, {
+      sayHello (call, callback) {
+        callback(null, {message: 'Hello ' + call.request.name});
+      }
+  });
+  server.bind('0.0.0.0:50051', grpc.ServerCredentials.createInsecure());
+  server.start();
+}
+
+main();
+```
+
+@[7-9](Procedure that server handles)
+
+@[12-13](Listen to port)
+
+@[2, 6](Loads proto into server service)
+
+---
+
+@title[gRPC in Client]
+
+<p><span class="slide-title">RPC (client.js)</span></p>
+
+```js
+var grpc = require('grpc');
+var { helloworld: hello_proto } = grpc.load('./helloworld.proto');
+
+var client = new hello_proto.Greeter(
+    'localhost:50051',
+    grpc.credentials.createInsecure()
+);
+var user = process.argv[2] || 'world';
+
+client.sayHello({name: user}, function(err, response) {
+    console.log('Greeting:', response.message);
+});
+```
+
+@[4-7](Connect with server)
+
+@[10-12](Call a procedure on server)
+
+@[2, 4](Loads the proto too)
