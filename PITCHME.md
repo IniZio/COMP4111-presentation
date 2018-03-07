@@ -55,3 +55,6 @@ d.on('remote', function (remote) {
 
 ### What if....
 
+- ... we do not want to use Node.js for either side?
+- we want to know what kind of parameters are allowed?
+- the procedure is blocking?
