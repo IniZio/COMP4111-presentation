@@ -4,5 +4,5 @@ pre {
 
 pre code {
 	border-radius: 10px;
-	padding: 20px;
+	padding: 20px !important;
 }
