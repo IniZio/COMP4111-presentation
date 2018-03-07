@@ -29,6 +29,8 @@ server.listen(5004);
 
 @[4-6](Procedures that server handles)
 
+@[8-8](Listen to port)
+
 ---
 
 @title[RPC in client]
@@ -58,3 +60,6 @@ d.on('remote', function (remote) {
 - ... we do not want to use Node.js for either side?
 - we want to know what kind of parameters are allowed?
 - the procedure is blocking?
+
+---
+
