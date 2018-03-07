@@ -2,11 +2,19 @@
 
 ### A modern RPC framework
 
+HTTP/2.0, ProtoBuf, 
+
 ---
 
 ## What so special with it?
 
 Let's see how current RPC looks like
+
+---
+
+<div style="display: flex; justify-content: center">
+
+<div style="flex: 1">
 
 @title[RPC in server]
 
@@ -23,7 +31,13 @@ var server = dnode({
 server.listen(5004);
 ```
 
-@title[RPC in server]
+@[4-6](Procedures that server handles)
+
+</div>
+
+<div style="flex: 1">
+
+@title[RPC in client]
 
 <p><span class="slide-title">RPC (client.js)</span></p>
 
@@ -39,3 +53,8 @@ d.on('remote', function (remote) {
 });
 ```
 
+@[4-9](Talk with server)
+
+@[5-8](Call a procedure on server)
+
+</div>
