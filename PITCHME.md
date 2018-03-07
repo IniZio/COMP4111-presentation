@@ -1,9 +1,3 @@
----
-logo : gprc.svg
----
-
-
-
 # g**RPC**
 
 ### A modern RPC framework
