@@ -156,7 +156,9 @@ client.sayHello({name: user}, function(err, response) {
 
 ---
 
-ProtoBuf vs JSON
+### Why ProtoBuf?
+
+---
 
 <p><span class="slide-title">ProtoBuf</span></p>
 
@@ -181,4 +183,15 @@ message Response {
     "oauth_scope": "public, email"
 }
 ```
+
+---
+
+Advantages:
+
+- Schemas are awesome
+- Versioning: `int32 id = 1` $\rightarrow$ `string responseId = 4`
+- Validations: `required`, `optional`, `repeated`
+- Even better performance (binary)
+
+---
 
