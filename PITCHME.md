@@ -37,7 +37,7 @@ server.listen(5004);
 
 @title[RPC in client]
 
-<p><span class="slide-title">RPC (client.js)</span></p>
+s
 
 ```js
 const dnode = require('dnode');
@@ -68,6 +68,8 @@ d.on('remote', function (remote) {
 #### How gRPC is like
 
 @title[Protobuf]
+
+<p><span class="slide-title">gRPC (helloworld.proto)</span></p>
 
 ```protobuf
 syntax = "proto3";
@@ -210,4 +212,21 @@ Advantages:
   ![](https://cdn.auth0.com/blog/protobuf-json/java-times.png)
 
 ---
+
+#### Other advantages of gRPC:
+
+- HTTP/2.0: header compression, multi-resourse request
+- Extendable:
+  - Can use JSON / XML,
+  - Security, health-checking, load-balancing and failover, monitoring, tracing, logging ....
+- Multi-language: C++, Java, Objective-C, Python, Ruby, Go, C#, Node.js
+
+---
+
+#### Scenerios for gRPC:
+
+- Low latency, highly scalable, distributed systems.
+- Developing mobile clients which are communicating to a cloud server.
+- Need a protocol that needs to be accurate, efficient and language independent.
+- Want fully extendable system eg. authentication, load balancing, logging and monitoring etc.
 
