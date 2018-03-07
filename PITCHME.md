@@ -1,10 +1,16 @@
+---
+logo : gprc.svg
+---
+
+
+
 # g**RPC**
 
 ### A modern RPC framework
 
 ---
 
-HTTP/2.0, ProtoBuf...
+#### HTTP/2.0, ProtoBuf...
 
 ### ...but what so special with it?
 
@@ -47,6 +53,11 @@ d.on('remote', function (remote) {
 });
 ```
 
-@[4-9](Talk with server)
+@[3-3](Connect with server)
 
 @[5-8](Call a procedure on server)
+
+---
+
+### What if....
+
