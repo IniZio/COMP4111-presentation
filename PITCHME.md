@@ -19,9 +19,9 @@ Let's see how current RPC looks like
 <p><span class="slide-title">RPC (server.js)</span></p>
 
 ```js
-var dnode = require('dnode');
+const dnode = require('dnode');
 
-var server = dnode({
+const server = dnode({
     transform : function (s, cb) {
         cb(s.replace(/[aeiou]{2,}/, 'aa').toUpperCase())
     }
@@ -42,7 +42,7 @@ server.listen(5004);
 ```js
 const dnode = require('dnode');
 
-var d = dnode.connect(5004);
+const d = dnode.connect(5004);
 d.on('remote', function (remote) {
     remote.transform('beep', function (s) {
         console.log('beep => ' + s);
@@ -71,11 +71,6 @@ d.on('remote', function (remote) {
 
 ```protobuf
 syntax = "proto3";
-
-option java_multiple_files = true;
-option java_package = "io.grpc.examples.helloworld";
-option java_outer_classname = "HelloWorldProto";
-option objc_class_prefix = "HLW";
 
 package helloworld;
 
@@ -109,11 +104,11 @@ message HelloReply {
 <p><span class="slide-title">gRPC (server.js)</span></p>
 
 ```js
-var grpc = require('grpc');
-var { helloworld: hello_proto } = grpc.load('./helloworld.proto');
+const grpc = require('grpc');
+const { helloworld: hello_proto } = grpc.load('./helloworld.proto');
 
 function main() {
-  var server = new grpc.Server();
+  const server = new grpc.Server();
   server.addService(hello_proto.Greeter.service, {
       sayHello (call, callback) {
         callback(null, {message: 'Hello ' + call.request.name});
@@ -136,17 +131,17 @@ main();
 
 @title[gRPC in Client]
 
-<p><span class="slide-title">RPC (client.js)</span></p>
+<p><span class="slide-title">gRPC (client.js)</span></p>
 
 ```js
-var grpc = require('grpc');
-var { helloworld: hello_proto } = grpc.load('./helloworld.proto');
+const grpc = require('grpc');
+const { helloworld: hello_proto } = grpc.load('./helloworld.proto');
 
-var client = new hello_proto.Greeter(
+const client = new hello_proto.Greeter(
     'localhost:50051',
     grpc.credentials.createInsecure()
 );
-var user = process.argv[2] || 'world';
+const user = process.argv[2] || 'world';
 
 client.sayHello({name: user}, function(err, response) {
     console.log('Greeting:', response.message);
@@ -158,3 +153,6 @@ client.sayHello({name: user}, function(err, response) {
 @[10-12](Call a procedure on server)
 
 @[2, 4](Loads the proto too)
+
+---
+
