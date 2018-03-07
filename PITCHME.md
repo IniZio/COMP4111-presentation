@@ -156,3 +156,29 @@ client.sayHello({name: user}, function(err, response) {
 
 ---
 
+ProtoBuf vs JSON
+
+<p><span class="slide-title">ProtoBuf</span></p>
+
+```protobuf
+// Unary response, as configured by the request.
+message Response {
+  required int32 id = 1;
+  // The user the request came from, for verifying authentication was
+  // successful.
+  string username = 2;
+  // OAuth scope.
+  string oauth_scope = 3;
+}
+```
+
+<p><span class="slide-title">JSON</span></p>
+
+```json
+{
+    "id": 1324234,
+    "username": "tom",
+    "oauth_scope": "public, email"
+}
+```
+
