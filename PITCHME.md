@@ -215,9 +215,9 @@ Advantages:
 
 #### Other advantages of gRPC:
 
-- HTTP/2.0: header compression, multi-resourse request
+- HTTP/2.0: header compression, multi-resource request
 - Extendable:
-  - Can use JSON / XML,
+  - Can use JSON / XML
   - Security, health-checking, load-balancing and failover, monitoring, tracing, logging ....
 - Multi-language: C++, Java, Objective-C, Python, Ruby, Go, C#, Node.js
 
@@ -229,3 +229,33 @@ Advantages:
 - Developing mobile clients which are communicating to a cloud server.
 - Need a protocol that needs to be accurate, efficient and language independent.
 - Want fully extendable system eg. authentication, load balancing, logging and monitoring etc.
+
+---
+
+@title[gRPC Stream in Server]
+
+<p><span class="slide-title">gRPC Stream (server.js)</span></p>
+
+```js
+function checkCollisions (call) {
+  const { x, y } = call.request;
+  props.map(prop => prop.x === x && prop.y === y && call.write(prop))
+  call.end()
+}
+```
+
+@title[gRPC Stream in Client]
+
+<p><span class="slide-title">gRPC Stream (client.js)</span></p>
+
+```js
+function runCheckCollisions (callback) {
+  const x = 10, y = 11
+  var call = client.checkCollisions({x, y});
+  call.on('data', function(prop) {
+      console.log('Collided with: ', prop)
+  });
+  call.on('end', callback);
+}
+```
+
