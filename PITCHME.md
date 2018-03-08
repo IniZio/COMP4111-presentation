@@ -232,6 +232,8 @@ Advantages:
 
 ---
 
+#### Gaming
+
 @title[gRPC Stream in Server]
 
 <p><span class="slide-title">gRPC Stream (server.js)</span></p>
@@ -246,16 +248,23 @@ function checkCollisions (call) {
 
 @title[gRPC Stream in Client]
 
-<p><span class="slide-title">gRPC Stream (client.js)</span></p>
+<p><span class="slide-title">gRPC Stream (client.go)</span></p>
 
-```js
-function runCheckCollisions (callback) {
-  const x = 10, y = 11
-  var call = client.checkCollisions({x, y});
-  call.on('data', function(prop) {
-      console.log('Collided with: ', prop)
-  });
-  call.on('end', callback);
+```go
+stream, err := client.checkCollisions({x: 10, y: 11})
+if err != nil {
+    log.Println('Some error')
+    return
+}
+for {
+    prop, err := stream.Recv()
+    if err == io.EOF {
+        break
+    }
+    if err != nil {
+        log.Fatalf("%v.checkCollisions(_) = _, %v", client, err)
+    }
+    log.Println('Collision with: ', prop)
 }
 ```
 
