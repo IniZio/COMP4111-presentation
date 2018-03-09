@@ -215,7 +215,7 @@ Advantages:
 
 #### Other advantages of gRPC:
 
-- HTTP/2.0: header compression, multi-resource request
+- HTTP/2.0: header compression, streaming nature
 - Extendable:
   - Can use JSON / XML
   - Security, health-checking, load-balancing and failover, monitoring, tracing, logging ....
