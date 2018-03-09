@@ -223,7 +223,7 @@ Advantages:
 
 ---
 
-#### Scenerios for gRPC:
+#### When to use gRPC?
 
 - Low latency, highly scalable, distributed systems.
 - Developing mobile clients which are communicating to a cloud server.
@@ -248,6 +248,22 @@ function checkCollisions (call) {
 
 @title[gRPC Stream in Client]
 
+<p><span class="slide-title">gRPC Stream (client.js)</span></p>
+
+```js
+var call = client.checkCollisions({x: 10, y: 11});
+call.on('data', function(prop) {
+    console.log('Collided with: ', prop)
+});
+call.on('end', function() {
+    // The server has finished sending
+});
+```
+
+---
+
+@title[gRPC Stream in Client]
+
 <p><span class="slide-title">gRPC Stream (client.go)</span></p>
 
 ```go
@@ -268,3 +284,9 @@ for {
 }
 ```
 
+---
+
+### When not to use gRPC?
+
+- In browser (WIP)
+- Want strict http/2.0 behaviours.
