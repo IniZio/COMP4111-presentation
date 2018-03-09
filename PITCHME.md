@@ -95,7 +95,7 @@ message HelloReply {
 
 @[16-19](Request parameters)
 
-@[21-24](Reply parameters)
+@[11-14](Reply parameters)
 
 @[5-9](A  service to greet)
 
