@@ -125,7 +125,7 @@ main();
 
 @[7-9](Procedure that server handles)
 
-@[12-13](Listen to port)
+@[11-12](Listen to port)
 
 @[2, 6](Loads proto into server service)
 
