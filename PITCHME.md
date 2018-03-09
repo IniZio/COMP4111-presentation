@@ -258,10 +258,6 @@ call.on('end', function() {
 });
 ```
 
-@[2-4](Listen to stream with callback)
-
-@[5-7](End of stream)
-
 ---
 
 @title[gRPC Stream in Client]
@@ -302,4 +298,8 @@ for _, coor := range coors {
 ### When not to use gRPC?
 
 - In browser (WIP)
-- Want strict http/2.0 behaviours.
+- need extensions for gRPC to work in some languages e.g. PHP
+
+---
+
+# Thank you!
