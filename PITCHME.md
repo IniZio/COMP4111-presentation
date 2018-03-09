@@ -192,7 +192,7 @@ Advantages:
 
 - Schemas are awesome
 
-- Versioning:
+- Versioning (backward compatitable):
 
   ```protobuf
   int32 id = 1;
