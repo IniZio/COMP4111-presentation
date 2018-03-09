@@ -299,6 +299,7 @@ for _, coor := range coors {
 
 - In browser (WIP)
 - need extensions for gRPC to work in some languages e.g. PHP
+- resource-oriented communication (REST)
 
 ---
 
